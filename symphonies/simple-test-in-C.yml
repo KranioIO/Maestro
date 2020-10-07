@@ -1,0 +1,21 @@
+symphony: simple-test-in-C
+
+trigger:
+  type: scheduler
+  info: 1/2 * * * *
+
+tasks:
+  start-task:
+    type: dummy
+
+  middle-task-A:
+    type: dummy
+    depends: start-task
+
+  middle-task-B:
+    type: dummy
+    depends: middle-task-A
+
+  end-task:
+    type: dummy
+    depends: middle-task-B

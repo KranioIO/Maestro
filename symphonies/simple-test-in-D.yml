@@ -1,0 +1,28 @@
+symphony: simple-test-in-D
+
+trigger:
+  type: scheduler
+  info: 0/2 * * * *
+
+tasks:
+  start-task:
+    type: dummy
+
+  middle-task-A:
+    type: dummy
+    depends: start-task
+
+  middle-task-B:
+    type: dummy
+    depends: start-task
+
+  middle-task-C:
+    type: dummy
+    depends: start-task
+
+  end-task:
+    type: dummy
+    depends:
+      - middle-task-A
+      - middle-task-B
+      - middle-task-C

@@ -1,0 +1,15 @@
+symphony: simple-test-in-A
+
+trigger:
+  type: scheduler
+  info: '* * * * *'
+
+tasks:
+  call-lambda:
+    type: lambda
+    payload:
+      name: test-lambda-dev-hello
+
+  end-task:
+    type: dummy
+    depends: call-lambda

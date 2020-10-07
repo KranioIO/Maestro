@@ -1,0 +1,36 @@
+symphony: simple-test-in-G
+
+trigger:
+  type: scheduler
+  info: 0/5 * * * *
+
+tasks:
+  task-A:
+    type: dummy
+
+  task-B:
+    type: dummy
+    depends: task-A
+
+  task-C:
+    type: dummy
+    depends: task-A
+
+  task-D:
+    type: dummy
+    depends: task-B
+
+  task-E:
+    type: dummy
+    depends: task-B
+
+  task-F:
+    type: dummy
+    depends: task-C
+
+  task-G:
+    type: dummy
+    depends:
+      - task-D
+      - task-E
+      - task-F
